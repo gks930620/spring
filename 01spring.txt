@@ -1,0 +1,25 @@
+Spring 시작
+DI, AOP
+
+
+
+스프링 web mvc 설정
+0.pom.xml
+1-1. 스프링에서 제공되는 web 관련기능들은 전부 톰캣(서버)안에서 동작
+1-2. web.xml
+2.spring 설정파일.xml
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

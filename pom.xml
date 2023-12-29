@@ -1,6 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.example</groupId>
   <artifactId>spring</artifactId>
@@ -8,7 +7,6 @@
   <version>1.0-SNAPSHOT</version>
   <name>spring Maven Webapp</name>
   <url>http://maven.apache.org</url>
-
   <properties>
     <java-version>17</java-version>
     <org.springframework-version>5.2.11.RELEASE</org.springframework-version>
@@ -37,7 +35,7 @@
       <version>${org.springframework-version}</version>
     </dependency>
 
-    <!-- spring.txt ORM : 스프링에서 DB관련 설정하는데 필요한 것들 -->
+    <!-- 01spring.txt ORM : 스프링에서 DB관련 설정하는데 필요한 것들 -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-orm</artifactId>

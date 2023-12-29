@@ -3,10 +3,12 @@ package com.study.member.dao;
 import com.study.common.vo.PagingVO;
 import com.study.member.vo.MemberSearchVO;
 import com.study.member.vo.MemberVO;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface IMemberDao {
 
     public int getTotalRowCount(@Param("paging")PagingVO paging, @Param("search")MemberSearchVO search);

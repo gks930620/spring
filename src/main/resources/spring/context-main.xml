@@ -17,32 +17,5 @@
                      location="/WEB-INF/classes/spring/appconfig.properties" />
 
 
-    <!-- ContextLoaderListenr 빈 중 DB관련 빈들 등록 -->
-    <!-- pdf 8페이지 , commons.dbcp대신 commons.dbcp2, name=" driverClassName " 띄어쓰기
-        주의 -->
-    <bean id="dataSource"
-          class="org.apache.commons.dbcp2.BasicDataSource"
-          destroy-method="close">
-        <property name="driverClassName"
-                  value="#{util['jdbc.driverClassName']}" />
-        <property name="url" value="#{util['jdbc.url']}" />
-        <property name="username" value="#{util['jdbc.username']}" />
-        <property name="password" value="#{util['jdbc.password']}" />
-        <property name="defaultAutoCommit"
-                  value="#{util['jdbc.defaultAutoCommit']}" />
-
-
-    </bean>
-    <!-- SqlSession setup for MyBatis Database Layer -->
-    <bean id="sqlSessionFactory"
-          class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />
-        <property name="configLocation"
-                  value="/WEB-INF/classes/mybatis/mybatis-config.xml" />
-        <property name="mapperLocations"
-                  value="/WEB-INF/classes/mybatis/mapper/*.xml" />
-    </bean>
-    <mybatis-spring:scan base-package="com.study"
-                         annotation="org.apache.ibatis.annotations.Mapper" />
 
 </beans>

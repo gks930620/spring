@@ -30,7 +30,7 @@
   <!-- 전체 컨테이너 파라미터 -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>/WEB-INF/classes/spring/context-main.xml</param-value>
+    <param-value>/WEB-INF/classes/spring/context-*.xml</param-value>
   </context-param>
 
   <!-- Creates the Spring Container shared by all Servlets and Filters -->
@@ -56,4 +56,6 @@
     <servlet-name>appServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+
+  <!--  /  , /* 차이 :      / 남은 모든거,   /* 그냥 모든 거        -->
 </web-app>

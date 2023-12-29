@@ -3,10 +3,12 @@ package com.study.free.dao;
 import com.study.common.vo.PagingVO;
 import com.study.free.vo.FreeBoardSearchVO;
 import com.study.free.vo.FreeBoardVO;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface IFreeBoardDao {
 
     public int getTotalRowCount(@Param("paging") PagingVO paging, @Param("search") FreeBoardSearchVO search);
