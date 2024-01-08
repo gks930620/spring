@@ -62,6 +62,18 @@
                 <td>${freeBoard.boDelYn}</td>
             </tr>
             <tr>
+                <th>첨부파일</th>
+                <td>
+                    <c:forEach var="f" items="${freeBoard.attaches}" varStatus="st">
+                        <div> 파일 ${st.count} <a href="<c:url value='/attach/download/${f.atchNo}' />" target="_blank">
+                            <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ${f.atchOriginalName}
+                        </a> Size : ${f.atchFancySize} Down : ${f.atchDownHit}
+                        </div>
+                    </c:forEach>
+                </td>
+            </tr>
+
+            <tr>
                 <td colspan="2">
                     <div class="pull-left">
                         <a href="freeList.wow" class="btn btn-default btn-sm"> <span class="glyphicon glyphicon-list"

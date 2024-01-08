@@ -26,7 +26,7 @@
                 자유게시판 - <small>글 수정</small>
             </h3>
         </div>
-        <form action="freeModify.wow" method="post">
+        <form action="freeModify.wow" method="post" enctype="multipart/form-data">
             <table class="table table-striped table-bordered">
                 <colgroup>
                     <col width="20%"/>
@@ -80,6 +80,30 @@
                     <th>최근등록일자</th>
                     <td>${freeBoard.boRegDate} </td>
                 </tr>
+
+
+                <tr>
+                    <th>첨부파일
+                        <button type="button" id="id_btn_new_file">추가</button>
+                    </th>
+                    <td class="file_area">
+                        <c:forEach var="f" items="${freeBoard.attaches}" varStatus="st">
+                            <div>
+                                # 파일 ${st.count} <a href="<c:url value='/attach/download/${f.atchNo}' />" target="_blank"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ${f.atchOriginalName}
+                            </a> Size : ${f.atchFancySize} Down : ${f.atchDownHit}
+                                <button class="btn_file_delete" data-atch-no="${f.atchNo}">
+                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        </c:forEach>
+                        <div class="form-inline">
+                            <input type="file" name="boFiles" class="form-control">
+                            <button type="button" class="btn_delete btn btn-sm">삭제</button>
+                        </div>
+                    </td>
+                </tr>
+
+
                 <tr>
                     <td colspan="2">
                         <div class="pull-left">
@@ -108,6 +132,34 @@
     <!-- container -->
 
 </body>
+
+<script>
+    // 첨부파일 추가버튼 클릭
+    $('#id_btn_new_file').click(function(){
+        $('.file_area').append('<div class="form-inline">'
+            + '<input type="file" name="boFiles" class="form-control">'
+            + ' <button type="button" class="btn_delete btn btn-sm">삭제</button>'
+            + '</div>');
+    }); // #id_btn_new_file.click
+
+
+    // 상위객체를 통해 이벤트 위임
+    $('.file_area').on('click','.btn_delete', function(){
+        $(this).closest('div').remove();
+    });
+
+    // 기존 첨부파일 삭제 클릭
+    $('.btn_file_delete').click(function(){
+        $btn = $(this);
+        $btn.closest('div').html(
+            '<input type="hidden" name="delAtchNos" value="' + $btn.data("atch-no")  + '" />'
+        );
+    });   //
+
+
+</script>
+
+
 </html>
 
 

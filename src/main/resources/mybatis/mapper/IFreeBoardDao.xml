@@ -91,6 +91,9 @@
 
 
     <insert id="insertBoard" parameterType="com.study.free.vo.FreeBoardVO">
+        <selectKey   keyProperty="boNo"  order="BEFORE" resultType="int">
+            SELECT   seq_free_board.nextval FROM dual
+        </selectKey>
         INSERT INTO free_board (
             bo_no                               , bo_title    , bo_category       ,
             bo_writer                           , bo_pass     , bo_content        ,
@@ -99,7 +102,7 @@
             bo_mod_date                         ,
             bo_del_yn
         ) VALUES (
-            seq_free_board.nextval              , #{boTitle}   , #{boCategory}    ,
+            #{boNo}             , #{boTitle}   , #{boCategory}    ,
             #{boWriter}                         , #{boPass}    , #{boContent}     ,
             0                                   ,
             sysdate                             ,

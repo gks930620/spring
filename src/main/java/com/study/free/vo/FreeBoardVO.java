@@ -1,7 +1,10 @@
 package com.study.free.vo;
 
+import com.study.attach.vo.AttachVO;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+
+import java.util.List;
 
 public class FreeBoardVO {
     private int boNo;                       /* 글 번호 */
@@ -17,6 +20,16 @@ public class FreeBoardVO {
 
     private  String boCategoryNm;           /*글분류 이름 ,get/set만들어라 */
 
+    private List<AttachVO> attaches;
+
+
+    public List<AttachVO> getAttaches() {
+        return attaches;
+    }
+
+    public void setAttaches(List<AttachVO> attaches) {
+        this.attaches = attaches;
+    }
 
     @Override
     public String toString() {

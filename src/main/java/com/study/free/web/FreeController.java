@@ -1,9 +1,11 @@
 package com.study.free.web;
 
+import com.study.attach.vo.AttachVO;
 import com.study.code.ParentCode;
 import com.study.code.service.CommCodeServiceImpl;
 import com.study.code.service.ICommCodeService;
 import com.study.code.vo.CodeVO;
+import com.study.common.util.StudyAttachUtils;
 import com.study.common.vo.PagingVO;
 import com.study.common.vo.ResultMessageVO;
 import com.study.exception.BizException;
@@ -24,6 +26,7 @@ import org.springframework.web.util.NestedServletException;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -69,7 +72,15 @@ public class FreeController {
     }
 
     @PostMapping("/free/freeModify.wow")
-    public String freeModify(Model model, FreeBoardVO freeBoard){
+    public String freeModify(Model model, FreeBoardVO freeBoard
+    , @RequestParam(name = "boFiles",required = false)MultipartFile[] boFiles) throws IOException{
+        if(boFiles!=null){
+            List<AttachVO> attachList = attachUtils.
+                    getAttachListByMultiparts
+                            (boFiles, "FREE", "free");
+            freeBoard.setAttaches(attachList);
+        }
+
         try {
             freeBoardService.modifyBoard(freeBoard);
             ResultMessageVO resultMessageVO=new ResultMessageVO();
@@ -112,14 +123,18 @@ public class FreeController {
         return "free/freeForm";
     }
 
+    @Inject
+    StudyAttachUtils attachUtils;
+
     @RequestMapping("/free/freeRegist.wow")
     public String freeRegist(Model model,FreeBoardVO freeBoard,
      @RequestParam(name = "boFiles",required = false)MultipartFile[] boFiles
-    ){
+    ) throws IOException {
         if(boFiles!=null){
-            System.out.println(boFiles[0].getSize());
-            System.out.println(boFiles[0].getName());
-            //boFiles[0].getOriginalFilename()
+            List<AttachVO> attachList = attachUtils.
+                    getAttachListByMultiparts
+                            (boFiles, "FREE", "free");
+            freeBoard.setAttaches(attachList);
         }
         freeBoardService.registBoard(freeBoard);
         ResultMessageVO resultMessageVO=new ResultMessageVO();
