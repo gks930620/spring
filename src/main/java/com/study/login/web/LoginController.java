@@ -21,6 +21,8 @@ import java.net.URLEncoder;
 @Controller
 public class LoginController {
 
+
+
     @Inject
     ILoginService loginService;
 

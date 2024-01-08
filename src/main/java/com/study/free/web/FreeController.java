@@ -17,6 +17,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.NestedServletException;
 
@@ -112,7 +113,14 @@ public class FreeController {
     }
 
     @RequestMapping("/free/freeRegist.wow")
-    public String freeRegist(Model model,FreeBoardVO freeBoard){
+    public String freeRegist(Model model,FreeBoardVO freeBoard,
+     @RequestParam(name = "boFiles",required = false)MultipartFile[] boFiles
+    ){
+        if(boFiles!=null){
+            System.out.println(boFiles[0].getSize());
+            System.out.println(boFiles[0].getName());
+            //boFiles[0].getOriginalFilename()
+        }
         freeBoardService.registBoard(freeBoard);
         ResultMessageVO resultMessageVO=new ResultMessageVO();
         resultMessageVO.messageSetting

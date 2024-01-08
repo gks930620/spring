@@ -1,0 +1,14 @@
+InterCeptor  : 낚아채다   요청을 낚아챔.
+==> Controller의 @RequestMapping()메소드 실행 전 후
+
+공통처리(로그인,권한체크, 토큰 등)
+
+
+interceptor는 dispatcherServlet안에서 실행되는 객체
+=> DS 설정파일에 interceptor 설정.
+
+
+
+
+
+

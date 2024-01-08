@@ -1,0 +1,53 @@
+업로드
+--파일을 저장 + DB저장 따로
+요청에 파일이 온다.
+<input type="file"> 랑 항상 <input type="text,number 기타 등등">이 같이 와요
+request :header, body로 구분.
+         header 중에 content-type은 body의 데이터 해석 방법
+         문제는 file은 file마다 content-type이 다 다름.
+         하나의 요청에 여러 content-type이 생김.
+         아!!.   content-type이 여러개라는 거를 알려주는 content-type이 있으면 되는군..
+         ==> multipart
+
+
+http 파일업로드 준비사항
+1.input type=file
+2.POST만 허용
+3. enctype= multipart/form-data   (jsp에서 수정)
+
+우리가 적용할 건 : Spring에서 저거를 어떻게 처리해주나..
+1. lib추가
+2. multipart를 처리해주는 객체(  multipartResolver) 설정
+ - Commons~~~MultpartResolver (서블릿 3.0이전)  -bean에서 전부 설정
+ - Standard~~~MultPartResolver (서블릿 3.0 이후)  -web.xml에서 설정 + bean설정
+
+
+3. Controller에서 파라미터를 MultipartFile 로 받아서 파일저장+ DB저장 코드
+
+
+
+
+
+다운로드
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

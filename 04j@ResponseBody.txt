@@ -1,0 +1,19 @@
+@RequestMapping에서 return 값은 jsp(view)를 찾는 뷰 네임
+
+공공API를 보면,
+공공API서버주소/resturant?size=10&location=001  입력하면 데이터를 받았죠. not 화면(html)
+
+@ResponseBody를 쓰면 데이터를 그대로 전달. (json,xml 등의 형태로 바꿔서 전달)
+List<FreeBoardVO> list를 전달.    [{boNo:1, boTitle:제목},{boNo:2 ....},{} ]
+자바객체를 json(xml,csv 등등)으로 바꿔서 전달하려면 거기에 맞는 lib가 필요
+
+
+lib다운받았으면 @ResponseBody붙이면 스프링이 알아서 자바객체를 json으로 변경
+jackson databind
+
+
+※ 참고 : @ResponseBody를 붙이는 이유는 데이터를 그대로 전달하는거지, ajax여부랑은 상관이없음.
+
+
+
+

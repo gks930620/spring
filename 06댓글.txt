@@ -1,0 +1,18 @@
+댓글 = AJAX로 구현,  freeView 화면에서만.
+
+댓글에 변화가 있어도 freeView는 새로고침안되고 댓글부분만 변화
+댓글컬럼
+ -re_parent_no, re_category
+ -freeView 10번의 댓글 3개,       announceView 10번의 댓글 5개가 있다?
+ -re_category로 freeView댓글인지, announceView 댓글인지 구별하기.
+
+만약 free의 댓글이면 FreeReply, announce 댓글이면 AnnounceReply로 테이블 만들면
+re_category 컬럼은 필요없다.
+
+
+
+댓글 : List, 등록, 수정 , 삭제
+
+
+
+

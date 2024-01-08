@@ -1,0 +1,48 @@
+vanilla (기본 javascript)
+jquery(만들어진 html에서 동작하는거를 쉽게 할 수 있도록 하는 프레임워크)
+
+jquery 기초
+1. 선택자 $("")
+  부모자식관계 $("table tr")
+  아이디,클래스,태그 선택자 $(". # 그냥태그")
+  속성선택  $("input[name='']" )  $("a[href='값1']")
+
+2. $객체와 자바스크립트 객체
+  console.log($("a"));   $객체내용이 나오는데...
+  console.log($("a")[0]);   [0]을 통해([1],[2]) 자바스크립트 객체로 변환가능
+  $( documet.getElementById("btn") ).val()
+
+3.주요 함수
+  3-1.val(),html(),text(),  val("a"), html(""), text("")
+    -    <input type="text" value="abc">
+            alert($("input").val());
+            $("input").val("변경");     <input type="text" value="변경">
+  3-2. submit() : 폼 태그 선택했을 때
+  3-3. attr(),prop()
+       - <input type="text" value="abc">
+         $("input").attr("type")  , $("input").attr("type", "number")
+        prop는 checked,selected,disable,readonly
+
+  3-4. data()   태그에 뭔가 데이터를 저장하고 싶을 때
+    - <td  data-age="20">
+      $("td").data("age"),  $("td").data("age" , "30")
+
+
+  3-5. find,children (선택자)   자식중에서 선택자에 맞는 자식 찾음.  후손    ,아들만
+
+     closest,parent (선택자)  조상중에서 선택자에 맞는 조상 찾음.    조상전부, 아빠만
+
+
+4. 기타  $.ajax,    $.each
+
+
+
+
+
+
+
+
+
+
+
+
