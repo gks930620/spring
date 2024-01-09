@@ -52,6 +52,7 @@ public class FreeBoardServiceImpl implements IFreeBoardService {
             throw new BizPasswordNotMatchedException("비밀번호 틀림. 사용자가 아님");
         }
 
+        //추가된 파일들 insert
         List<AttachVO> attaches = freeBoard.getAttaches();
         if(attaches!=null){
             for(AttachVO attach : attaches){
@@ -59,6 +60,13 @@ public class FreeBoardServiceImpl implements IFreeBoardService {
                 attachDao.insertAttach(attach);
             }
         }
+
+        //삭제할 파일들 삭제   freeBoard의 delAtchNos가지고.
+        int[] delAtchNos = freeBoard.getDelAtchNos();
+        if(delAtchNos!=null){
+            attachDao.deleteAttaches(delAtchNos);
+        }
+
 
     }
 

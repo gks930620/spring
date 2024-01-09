@@ -72,8 +72,9 @@ public class FreeController {
     }
 
     @PostMapping("/free/freeModify.wow")
-    public String freeModify(Model model, FreeBoardVO freeBoard
-    , @RequestParam(name = "boFiles",required = false)MultipartFile[] boFiles) throws IOException{
+    public String freeModify(Model model, FreeBoardVO freeBoard   //삭제할 파일번호들이 배열로 세팅됨 delAtchNos
+    , @RequestParam(name = "boFiles",required = false)MultipartFile[] boFiles
+    ) throws IOException{
         if(boFiles!=null){
             List<AttachVO> attachList = attachUtils.
                     getAttachListByMultiparts

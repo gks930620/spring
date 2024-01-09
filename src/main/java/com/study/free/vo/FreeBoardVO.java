@@ -22,6 +22,17 @@ public class FreeBoardVO {
 
     private List<AttachVO> attaches;
 
+    private int[] delAtchNos ;
+
+
+
+    public int[] getDelAtchNos() {
+        return delAtchNos;
+    }
+
+    public void setDelAtchNos(int[] delAtchNos) {
+        this.delAtchNos = delAtchNos;
+    }
 
     public List<AttachVO> getAttaches() {
         return attaches;

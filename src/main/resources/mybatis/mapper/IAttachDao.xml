@@ -15,6 +15,7 @@
               , 0                   , 'N'                     , SYSDATE
         )
     </insert>
+
     <select id="getAttaches" resultType="com.study.attach.vo.AttachVO">
         SELECT
             atch_no                 ,atch_parent_no           ,atch_category
@@ -28,4 +29,13 @@
     </select>
 
 
+    <delete id="deleteAttaches" parameterType="map">
+        DELETE FROM attach
+        WHERE atch_no
+        IN (
+        <foreach collection="array"  item="item" separator="," close=")" >
+            #{item}
+        </foreach>
+
+    </delete>
 </mapper>
